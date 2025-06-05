@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.full-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* For the whole scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust the width of the scrollbar */
+  height: 12px; /* Adjust the height for horizontal scrollbars */
+}
+
+/* For the scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background-color: #f3f4f6; /* slate-900 */
+  border-radius: 10px; /* Optional: Adds rounded corners to the track */
+}
+
+/* For the draggable part of the scrollbar (the thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #1e293c; /* gray-100 */
+  border-radius: 10px; /* Optional: Adds rounded corners to the thumb */
+  border: 1px solid grey; /* Optional: Adds a border to the thumb for contrast */
+}
+
+/* When hovering over the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d1d5db; /* Slightly darker gray for hover effect */
+}
