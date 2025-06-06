@@ -1,104 +1,180 @@
 import React from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  GraduationCap,
+} from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-800 text-white py-6">
-      <div className="container mx-auto px-6 sm:px-12 wrapper pt-5">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Column 1: Logo and Info */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-4">MyLogo</h3>
-            <p className="text-gray-400 mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero. Sed cursus ante dapibus diam.
+    <footer className="bg-gradient-to-br from-slate-50 via-slate-50 to-slate-50 relative overflow-hidden border-t border-gray-200">
+      {/* Background elements matching home */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full opacity-10 blur-xl"></div>
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-100 rounded-full opacity-10 blur-xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* School Info */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <GraduationCap className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800">
+                A.D.C International{" "}
+                <span className="text-blue-600">Hortensia</span>
+              </h3>
+            </div>
+            <p className="text-gray-600">
+              Nurturing global citizens through innovative education since 1985.
             </p>
-            <div className="flex space-x-4">
+
+            {/* Social Media */}
+            <div className="flex gap-3 pt-2">
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition duration-200"
+                className="text-gray-500 hover:text-blue-600 transition-colors"
               >
-                <i className="fab fa-facebook-f"></i>
+                <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition duration-200"
+                className="text-gray-500 hover:text-sky-500 transition-colors"
               >
-                <i className="fab fa-twitter"></i>
+                <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition duration-200"
+                className="text-gray-500 hover:text-pink-600 transition-colors"
               >
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition duration-200"
-              >
-                <i className="fab fa-instagram"></i>
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Useful Links */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Useful Links</h3>
-            <ul className="text-gray-400">
-              <li className="mb-3">
-                <a
-                  href="#"
-                  className="hover:text-white transition duration-200"
-                >
-                  Home
-                </a>
-              </li>
-              <li className="mb-3">
-                <a
-                  href="#"
-                  className="hover:text-white transition duration-200"
-                >
-                  About
-                </a>
-              </li>
-              <li className="mb-3">
-                <a
-                  href="#"
-                  className="hover:text-white transition duration-200"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+          {/* Quick Links */}
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800 mb-4">
+                Programs
+              </h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>
+                  <a href="#" className="hover:text-blue-600 transition-colors">
+                    Primary Years
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-600 transition-colors">
+                    Middle Years
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-600 transition-colors">
+                    Diploma
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-600 transition-colors">
+                    Summer School
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800 mb-4">
+                About
+              </h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-600 transition-colors"
+                  >
+                    Our Story
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-600 transition-colors"
+                  >
+                    Admissions
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-600 transition-colors"
+                  >
+                    Faculty
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-600 transition-colors"
+                  >
+                    Careers
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Column 3: Contact Info */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Contact Info</h3>
-            <p className="text-gray-400 mb-4">
-              Email:{" "}
-              <a
-                href="mailto:support@example.com"
-                className="text-blue-500 hover:text-blue-600"
-              >
-                support@example.com
-              </a>
-            </p>
-            <p className="text-gray-400">
-              Phone:{" "}
-              <a
-                href="tel:+1234567890"
-                className="text-blue-500 hover:text-blue-600"
-              >
-                +123 456 7890
-              </a>
-            </p>
+          {/* Contact */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-gray-800">Contact Us</h4>
+            <div className="space-y-3 text-gray-600">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <p>123 Education Blvd, International District, Singapore</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                <a
+                  href="mailto:info@adc-hortensia.edu"
+                  className="hover:text-purple-600 transition-colors"
+                >
+                  info@adc-hortensia.edu
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+                <a
+                  href="tel:+6565551234"
+                  className="hover:text-indigo-600 transition-colors"
+                >
+                  +65 6555 1234
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="text-center mt-8 border-t border-gray-700 pt-6">
-          <p className="text-gray-400 text-sm">
-            &copy; 2024 MyWebsite. All Rights Reserved.
-          </p>
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+          <div>
+            © {new Date().getFullYear()} A.D.C International Hortensia. All
+            rights reserved.
+          </div>
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-gray-800 transition-colors">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-gray-800 transition-colors">
+              Terms
+            </a>
+            <a href="#" className="hover:text-gray-800 transition-colors">
+              Accessibility
+            </a>
+          </div>
         </div>
       </div>
     </footer>

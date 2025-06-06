@@ -16,6 +16,8 @@ import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard/Dashboard";
 import BlogPostPage from "./components/BlogPostPage";
 import ContactPage from "./components/ContactPage";
+// private route
+import PrivateRoute from "./components/Utils/PrivateRoute";
 
 const Layout = () => {
   return (
@@ -42,7 +44,11 @@ const router = Router([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/contact",

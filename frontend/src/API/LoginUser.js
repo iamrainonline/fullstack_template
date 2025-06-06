@@ -1,15 +1,21 @@
 import axios from "axios";
 
-export const loginUser = async (loginUser) => {
+export const loginUser = async ({ email, password }) => {
   try {
-    const response = await axios.post(
-      "http://localhost:3000/auth/login",
-      loginUser
-    );
-    console.log("User logged in successfully:", response.data);
-    return response.data;
-  } catch (error) {
-    console.error("Error logging in:", error);
-    throw error;
+    const res = await axios.post("http://localhost:3000/auth/login", {
+      email,
+      password,
+    });
+
+    // ✅ Return success if login worked
+    return { success: true, user: res.data };
+  } catch (err) {
+    console.error("Login failed:", err);
+
+    // ❌ Return failure if login failed
+    return {
+      success: false,
+      message: err.response?.data?.message || "Invalid credentials",
+    };
   }
 };

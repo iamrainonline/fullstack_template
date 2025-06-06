@@ -1,21 +1,18 @@
-import React, { useState } from "react";
-import {
-  Users,
-  Newspaper,
-  Layout,
-  Settings,
-  UserPen,
-  LogOut,
-} from "lucide-react";
+import React, { useState, useContext } from "react";
+import { Newspaper, Layout, Settings, UserPen, LogOut } from "lucide-react";
 import Posts from "./Items/Posts/Posts";
 import UsersComponent from "./Items/Users/UsersComponent";
 import Sidebarsettings from "./Items/Sidebarsettings";
 import DashboardItems from "./Items/DashboardItems";
 import Profile from "./Items/Profile/Profile";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
+
 // home charts
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
-
+  const { logout, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
   const sidebarItems = [
     {
       icon: <Layout className="w-6 h-6 md:w-5 md:h-5" />,
@@ -27,11 +24,7 @@ const AdminDashboard = () => {
       name: "Profile",
       section: "Profile",
     },
-    {
-      icon: <Users className="w-6 h-6 md:w-5 md:h-5" />,
-      name: "Users",
-      section: "users-component",
-    },
+
     {
       icon: <Newspaper className="w-6 h-6 md:w-5 md:h-5" />,
       name: "Posts",
@@ -41,11 +34,6 @@ const AdminDashboard = () => {
       icon: <Settings className="w-6 h-6 md:w-5 md:h-5" />,
       name: "Settings",
       section: "settings",
-    },
-    {
-      icon: <LogOut className="w-6 h-6 md:w-5 md:h-5" />,
-      name: "Logout",
-      section: "Logout",
     },
   ];
 
@@ -67,7 +55,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="min-h-screen flex bg-gray-100 ">
       {/* Sidebar */}
       <div className="w-20 md:w-64 bg-slate-900 text-white p-6">
         <h1 className="hidden md:block text-2xl font-bold mb-10 ml-3">
@@ -88,6 +76,16 @@ const AdminDashboard = () => {
               <span className="hidden md:inline">{item.name}</span>
             </button>
           ))}
+          <button
+            onClick={() => {
+              logout();
+              navigate("/");
+            }}
+            className="hover:bg-slate-800 text-slate-300 w-full flex items-center justify-center md:justify-start md:space-x-3 p-3 rounded-lg mb-2 transition duration-300"
+          >
+            <LogOut className="w-6 h-6 md:w-5 md:h-5" />
+            <span className="hidden md:inline">Logout</span>
+          </button>
         </nav>
       </div>
 

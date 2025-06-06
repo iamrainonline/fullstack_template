@@ -6,9 +6,9 @@ const checkAuth = async () => {
     const res = await axios.get("http://localhost:3000/auth/check", {
       withCredentials: true,
     });
-    return res.status === 200;
+    return res.data;
   } catch (err) {
-    return false;
+    return { authenticated: false };
   }
 };
 
