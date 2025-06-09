@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { LogIn, User, Lock, GraduationCap, Eye, EyeOff } from "lucide-react";
-import { loginUser } from "../../API/LoginUser";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { User, Lock, GraduationCap, Eye, EyeOff } from "lucide-react";
+import { AuthContext } from "../../context/authContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,26 +11,28 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  const { login } = useContext(AuthContext); // Use the context's login method
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-
     if (!email || !password) {
       setError("Please fill in both fields");
-      setIsLoading(false);
       return;
     }
 
+    setIsLoading(true);
+    setError("");
+
     try {
-      const response = await loginUser({ email, password });
-      if (response.success) {
-        navigate("/dashboard");
-      } else {
-        setError(response.message || "Invalid credentials");
-      }
+      // Use the AuthContext login method instead of separate API call
+      await login({ email, password });
+      // Navigate will happen after successful login
+      navigate("/dashboard");
     } catch (err) {
-      console.error(err);
-      setError("Login failed. Please try again.");
+      console.error("Login error:", err);
+      setError(
+        err.response?.data?.message || "Login failed. Please try again."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -96,6 +98,7 @@ const Login = () => {
                       setEmail(e.target.value);
                       setError("");
                     }}
+                    disabled={isLoading}
                     required
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -118,6 +121,7 @@ const Login = () => {
                       setPassword(e.target.value);
                       setError("");
                     }}
+                    disabled={isLoading}
                     required
                   />
                   <button
@@ -137,12 +141,12 @@ const Login = () => {
 
               {/* Forgot Password Link */}
               <div className="text-right">
-                <a
-                  href="/forgot-password"
+                <Link
+                  to="/forgot-password"
                   className="text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
                 >
                   Forgot your password?
-                </a>
+                </Link>
               </div>
 
               {/* Login Button */}
@@ -154,13 +158,10 @@ const Login = () => {
                 {isLoading ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    Signing In...
+                    Signing in...
                   </>
                 ) : (
-                  <>
-                    <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                    Sign In to Portal
-                  </>
+                  "Submit"
                 )}
               </button>
             </div>
@@ -179,13 +180,13 @@ const Login = () => {
 
             {/* Sign Up Link */}
             <div className="text-center">
-              <a
-                href="/signup"
+              <Link
+                to="/signup"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/50 backdrop-blur-sm border border-white/40 text-slate-700 font-semibold rounded-xl hover:bg-white/70 hover:text-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
               >
                 <User className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                 Create New Account
-              </a>
+              </Link>
             </div>
           </form>
         </div>
@@ -194,12 +195,12 @@ const Login = () => {
         <div className="mt-8 text-center">
           <p className="text-slate-600 text-sm">
             Need help? Contact our{" "}
-            <a
-              href="/support"
+            <Link
+              to="/support"
               className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
             >
               IT Support Team
-            </a>
+            </Link>
           </p>
         </div>
       </div>

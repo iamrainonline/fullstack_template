@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import roFlag from "./flags/romania.png";
 import engFlag from "./flags/united-kingdom.png";
@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { AuthContext } from "../../context/authContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { i18n, t } = useTranslation("Navbar");
@@ -21,7 +22,8 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, authLoading, currentUser } = useContext(AuthContext);
+
   const menuItems = [
     { id: "Home", label: t("home") },
     { id: "About", label: t("about") },
@@ -46,6 +48,16 @@ const Navbar = () => {
     setActiveMenu(itemId);
     setMobileMenuOpen(false);
   };
+
+  // Watch for authentication changes to trigger re-render
+  useEffect(() => {
+    console.log("Auth state changed:", {
+      isAuthenticated,
+      currentUser,
+      authLoading,
+    });
+  }, [isAuthenticated, currentUser, authLoading]);
+
   return (
     <>
       {/* Fixed header container */}
@@ -85,28 +97,24 @@ const Navbar = () => {
         </div>
 
         {/* Main navbar */}
-        <header
-          className={`bg-white/95 backdrop-blur-md shadow-lg w-full transition-all duration-300 border-b border-white/20 
-          
-          }`}
-        >
+        <header className="bg-white/95 backdrop-blur-md shadow-lg w-full transition-all duration-300 border-b border-white/20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between items-center h-20">
               {/* Logo */}
               <div className="flex items-center">
-                <a href="/" className="flex items-center group">
+                <Link to="/" className="flex items-center group">
                   <div className="w-14 h-14 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-xl flex items-center justify-center mr-4 group-hover:scale-105 transition-all duration-300 shadow-lg">
                     <GraduationCap className="w-7 h-7 text-white" />
                   </div>
                   <div>
                     <h1 className="text-xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
-                      HORTENSIA
+                      {t("LogoTitle")}
                     </h1>
                     <p className="text-sm text-slate-500 hidden sm:block">
-                      CENTRU DE STUDII
+                      {t("LogoSubtitle")}
                     </p>
                   </div>
-                </a>
+                </Link>
               </div>
 
               {/* Desktop Navigation */}
@@ -180,25 +188,34 @@ const Navbar = () => {
                   )}
                 </div>
 
-                {/* Login Button */}
+                {/* Authentication buttons - only show when not loading */}
+                {!authLoading && (
+                  <>
+                    {isAuthenticated ? (
+                      <Link
+                        to="/dashboard"
+                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                        title={`Dashboard - ${currentUser?.name || "User"}`}
+                      >
+                        <User className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/login"
+                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                        title="Login"
+                      >
+                        <Key className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                      </Link>
+                    )}
+                  </>
+                )}
 
-                {/* Dashboard Button */}
-                {isAuthenticated ? (
-                  <a
-                    href="/dashboard"
-                    className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                    title="Dashboard"
-                  >
-                    <User className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                  </a>
-                ) : (
-                  <a
-                    href="/login"
-                    className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                    title="Login"
-                  >
-                    <Key className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                  </a>
+                {/* Show loading spinner when auth is loading */}
+                {authLoading && (
+                  <div className="w-11 h-11 flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-slate-300 border-t-blue-600 rounded-full animate-spin"></div>
+                  </div>
                 )}
 
                 {/* Mobile menu button */}
@@ -251,20 +268,28 @@ const Navbar = () => {
                 </button>
 
                 <div className="flex space-x-3">
-                  <a
-                    href="/login"
-                    className="flex-1 flex items-center justify-center py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-xl transition-all duration-300"
-                  >
-                    <Key className="w-5 h-5 mr-2" />
-                    Login
-                  </a>
-                  <a
-                    href="/dashboard"
-                    className="flex-1 flex items-center justify-center py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl transition-all duration-300"
-                  >
-                    <User className="w-5 h-5 mr-2" />
-                    Dashboard
-                  </a>
+                  {!authLoading && (
+                    <>
+                      {!isAuthenticated && (
+                        <Link
+                          to="/login"
+                          className="flex-1 flex items-center justify-center py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-xl transition-all duration-300"
+                        >
+                          <Key className="w-5 h-5 mr-2" />
+                          Login
+                        </Link>
+                      )}
+                      {isAuthenticated && (
+                        <Link
+                          to="/dashboard"
+                          className="flex-1 flex items-center justify-center py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl transition-all duration-300"
+                        >
+                          <User className="w-5 h-5 mr-2" />
+                          Dashboard
+                        </Link>
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
 

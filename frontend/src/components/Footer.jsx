@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Mail,
   Phone,
@@ -37,24 +38,24 @@ const Footer = () => {
 
             {/* Social Media */}
             <div className="flex gap-3 pt-2">
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="text-gray-500 hover:text-blue-600 transition-colors"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="text-gray-500 hover:text-sky-500 transition-colors"
               >
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="text-gray-500 hover:text-pink-600 transition-colors"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -66,24 +67,36 @@ const Footer = () => {
               </h4>
               <ul className="space-y-2 text-gray-600">
                 <li>
-                  <a href="#" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     Primary Years
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     Middle Years
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     Diploma
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     Summer School
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -93,36 +106,36 @@ const Footer = () => {
               </h4>
               <ul className="space-y-2 text-gray-600">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="hover:text-purple-600 transition-colors"
                   >
                     Our Story
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="hover:text-purple-600 transition-colors"
                   >
                     Admissions
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="hover:text-purple-600 transition-colors"
                   >
                     Faculty
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="hover:text-purple-600 transition-colors"
                   >
                     Careers
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -165,15 +178,15 @@ const Footer = () => {
             rights reserved.
           </div>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-gray-800 transition-colors">
+            <Link to="#" className="hover:text-gray-800 transition-colors">
               Privacy
-            </a>
-            <a href="#" className="hover:text-gray-800 transition-colors">
+            </Link>
+            <Link to="#" className="hover:text-gray-800 transition-colors">
               Terms
-            </a>
-            <a href="#" className="hover:text-gray-800 transition-colors">
+            </Link>
+            <Link to="#" className="hover:text-gray-800 transition-colors">
               Accessibility
-            </a>
+            </Link>
           </div>
         </div>
       </div>

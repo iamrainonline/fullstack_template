@@ -58,7 +58,6 @@ export const AuthContextProvider = ({ children }) => {
     verify();
   }, []);
 
-  // Derived state - no need for separate isAuthenticated
   const isAuthenticated = !!currentUser;
   return (
     <AuthContext.Provider
@@ -68,6 +67,7 @@ export const AuthContextProvider = ({ children }) => {
         login,
         logout,
         authLoading,
+        setAuthLoading,
       }}
     >
       {children}

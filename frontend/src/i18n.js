@@ -6,12 +6,17 @@ import { initReactI18next } from "react-i18next";
 import navEn from "../src/lang/pages/Navbar/en.json";
 import navRo from "../src/lang/pages/Navbar/ro.json";
 
+import homeEn from "../src/lang/pages/Home/en.json";
+import homeRo from "../src/lang/pages/Home/ro.json";
+
 const resources = {
   en: {
     Navbar: navEn,
+    Home: homeEn,
   },
   ro: {
     Navbar: navRo,
+    Home: homeRo,
   },
 };
 
@@ -21,8 +26,8 @@ i18n
   .init({
     resources, // Provide the translations
     lng: "ro", // Default language
-    fallbackLng: "en",
-    ns: ["Navbar"], // Namespaces corresponding to each page
+    fallbackLng: "ro",
+    ns: ["Navbar", "Home"], // Namespaces corresponding to each page
     interpolation: {
       escapeValue: false, // React already does escaping
     },

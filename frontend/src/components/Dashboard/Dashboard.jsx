@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Newspaper, Layout, Settings, UserPen, LogOut } from "lucide-react";
 import Posts from "./Items/Posts/Posts";
 import UsersComponent from "./Items/Users/UsersComponent";
@@ -8,11 +8,18 @@ import Profile from "./Items/Profile/Profile";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
-// home charts
 const AdminDashboard = () => {
-  const [activeSection, setActiveSection] = useState("dashboard");
-  const { logout, loading } = useContext(AuthContext);
+  const [activeSection, setActiveSection] = useState("Dashboard"); // Fixed: capitalize to match switch cases
+  const { logout, isAuthenticated, authLoading } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  // Redirect if not authenticated
+  useEffect(() => {
+    if (!authLoading && !isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, authLoading, navigate]);
+
   const sidebarItems = [
     {
       icon: <Layout className="w-6 h-6 md:w-5 md:h-5" />,
@@ -24,7 +31,6 @@ const AdminDashboard = () => {
       name: "Profile",
       section: "Profile",
     },
-
     {
       icon: <Newspaper className="w-6 h-6 md:w-5 md:h-5" />,
       name: "Posts",
@@ -36,6 +42,17 @@ const AdminDashboard = () => {
       section: "settings",
     },
   ];
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Still navigate away even if logout fails
+      navigate("/");
+    }
+  };
 
   const renderContent = () => {
     switch (activeSection) {
@@ -54,8 +71,25 @@ const AdminDashboard = () => {
     }
   };
 
+  // Show loading state while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return (
-    <div className="min-h-screen flex bg-gray-100 mt-36">
+    <div className="min-h-screen flex bg-gray-100 mt-[125px]">
       {/* Sidebar */}
       <div className="w-20 md:w-64 bg-slate-900 text-white p-6">
         <h1 className="hidden md:block text-2xl font-bold mb-10 ml-3">
@@ -77,10 +111,7 @@ const AdminDashboard = () => {
             </button>
           ))}
           <button
-            onClick={() => {
-              logout();
-              navigate("/");
-            }}
+            onClick={handleLogout}
             className="hover:bg-slate-800 text-slate-300 w-full flex items-center justify-center md:justify-start md:space-x-3 p-3 rounded-lg mb-2 transition duration-300"
           >
             <LogOut className="w-6 h-6 md:w-5 md:h-5" />
