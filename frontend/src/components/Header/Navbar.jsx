@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import roFlag from "./flags/romania.png";
 import engFlag from "./flags/united-kingdom.png";
@@ -13,15 +13,15 @@ import {
   Menu,
   X,
 } from "lucide-react";
-// import { Link } from "react-router-dom"; // Commented out for demo
+import { AuthContext } from "../../context/authContext";
 
 const Navbar = () => {
   const { i18n, t } = useTranslation("Navbar");
   const [activeMenu, setActiveMenu] = useState("Home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
+  const { isAuthenticated } = useContext(AuthContext);
   const menuItems = [
     { id: "Home", label: t("home") },
     { id: "About", label: t("about") },
@@ -37,12 +37,6 @@ const Navbar = () => {
   const currentLanguage =
     languages.find((lang) => lang.code === i18n.language) || languages[0];
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const handleLanguageChange = (langCode) => {
     i18n.changeLanguage(langCode);
     setLangMenuOpen(false);
@@ -52,7 +46,6 @@ const Navbar = () => {
     setActiveMenu(itemId);
     setMobileMenuOpen(false);
   };
-
   return (
     <>
       {/* Fixed header container */}
@@ -77,7 +70,7 @@ const Navbar = () => {
                 <div className="flex items-center group">
                   <Mail className="w-4 h-4 mr-2 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   <span className="group-hover:text-white transition-colors duration-300">
-                    admissions@windsor-intl.edu
+                    admitere@hortensia.int.edu
                   </span>
                 </div>
               </div>
@@ -93,8 +86,8 @@ const Navbar = () => {
 
         {/* Main navbar */}
         <header
-          className={`bg-white/95 backdrop-blur-md shadow-lg w-full transition-all duration-300 border-b border-white/20 ${
-            scrolled ? "shadow-xl bg-white/98" : ""
+          className={`bg-white/95 backdrop-blur-md shadow-lg w-full transition-all duration-300 border-b border-white/20 
+          
           }`}
         >
           <div className="max-w-7xl mx-auto px-4">
@@ -106,11 +99,12 @@ const Navbar = () => {
                     <GraduationCap className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h1 className="line-height-2 text-xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
-                      International
-                      <br />
-                      Hortensia
+                    <h1 className="text-xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+                      HORTENSIA
                     </h1>
+                    <p className="text-sm text-slate-500 hidden sm:block">
+                      CENTRU DE STUDII
+                    </p>
                   </div>
                 </a>
               </div>
@@ -186,28 +180,26 @@ const Navbar = () => {
                   )}
                 </div>
 
-                {/* Apply Button */}
-                <button className="hidden sm:flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  {t("applynow")}
-                </button>
-
                 {/* Login Button */}
-                <a
-                  href="/login"
-                  className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                  title="Login"
-                >
-                  <Key className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                </a>
 
                 {/* Dashboard Button */}
-                <a
-                  href="/dashboard"
-                  className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                  title="Dashboard"
-                >
-                  <User className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                </a>
+                {isAuthenticated ? (
+                  <a
+                    href="/dashboard"
+                    className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                    title="Dashboard"
+                  >
+                    <User className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                  </a>
+                ) : (
+                  <a
+                    href="/login"
+                    className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                    title="Login"
+                  >
+                    <Key className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                  </a>
+                )}
 
                 {/* Mobile menu button */}
                 <button

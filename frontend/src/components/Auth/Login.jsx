@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-// import { motion } from "framer-motion"; // Commented out for demo
-// import { useNavigate } from "react-router-dom"; // Commented out for demo
+import { useNavigate } from "react-router-dom";
 import { LogIn, User, Lock, GraduationCap, Eye, EyeOff } from "lucide-react";
-// import { loginUser } from "../../API/LoginUser"; // Commented out for demo
+import { loginUser } from "../../API/LoginUser";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +9,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // const navigate = useNavigate(); // Commented out for demo
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,23 +22,16 @@ const Login = () => {
     }
 
     try {
-      // Simulate API call for demo
-      setTimeout(() => {
-        setIsLoading(false);
-        // For demo purposes, just show success
-        alert("Login successful! (Demo mode)");
-      }, 1500);
-
-      // Real implementation:
-      // const response = await loginUser({ email, password });
-      // if (response.success) {
-      //   navigate("/dashboard");
-      // } else {
-      //   setError(response.message || "Invalid credentials");
-      // }
+      const response = await loginUser({ email, password });
+      if (response.success) {
+        navigate("/dashboard");
+      } else {
+        setError(response.message || "Invalid credentials");
+      }
     } catch (err) {
       console.error(err);
       setError("Login failed. Please try again.");
+    } finally {
       setIsLoading(false);
     }
   };
@@ -67,19 +59,19 @@ const Login = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <GraduationCap className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-2 text-white">
                 Welcome Back
               </h2>
               <p className="text-blue-100 opacity-90">
-                Sign in to Windsor International Portal
+                Sign in to A.D.C International Portal
               </p>
             </div>
           </div>
 
           {/* Form Section */}
-          <div className="p-8 space-y-6">
+          <form onSubmit={handleSubmit} className="p-8 space-y-6">
             {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-center animate-in slide-in-from-top-2 duration-300">
+              <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-center">
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-4 h-4 bg-red-500 rounded-full"></div>
                   {error}
@@ -155,7 +147,7 @@ const Login = () => {
 
               {/* Login Button */}
               <button
-                onClick={handleSubmit}
+                type="submit"
                 disabled={isLoading}
                 className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 group"
               >
@@ -180,7 +172,7 @@ const Login = () => {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="px-4 bg-white/80 backdrop-blur-sm text-slate-500 rounded-full">
-                  New to Windsor International?
+                  New to A.D.C International?
                 </span>
               </div>
             </div>
@@ -195,7 +187,7 @@ const Login = () => {
                 Create New Account
               </a>
             </div>
-          </div>
+          </form>
         </div>
 
         {/* Additional Info */}

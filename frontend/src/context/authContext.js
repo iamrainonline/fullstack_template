@@ -1,23 +1,43 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
-import checkAuth from "../API/checkAuth"; // Make sure this returns { authenticated, name, userId }
+import checkAuth from "../API/checkAuth";
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [authLoading, setAuthLoading] = useState(true); // prevent early renders
+  const [authLoading, setAuthLoading] = useState(true);
 
   const login = async (inputs) => {
-    const res = await axios.post("/auth/login", inputs);
-    setCurrentUser(res.data); // res.data should contain the user info
+    try {
+      const res = await axios.post("http://localhost:3000/auth/login", inputs, {
+        withCredentials: true,
+      });
+      setCurrentUser(res.data); // Assume res.data contains user info
+      return res.data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   const logout = async () => {
-    await axios.post("/auth/logout");
-    setCurrentUser(null);
+    try {
+      await axios.post(
+        "http://localhost:3000/auth/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      setCurrentUser(null);
+    } catch (error) {
+      console.error("Logout failed:", error);
+      // Still clear user locally even if request fails
+      setCurrentUser(null);
+    }
   };
 
+  // Single useEffect for authentication check
   useEffect(() => {
     const verify = async () => {
       try {
@@ -28,6 +48,7 @@ export const AuthContextProvider = ({ children }) => {
           setCurrentUser(null);
         }
       } catch (err) {
+        console.error("Auth verification failed:", err);
         setCurrentUser(null);
       } finally {
         setAuthLoading(false);
@@ -37,8 +58,18 @@ export const AuthContextProvider = ({ children }) => {
     verify();
   }, []);
 
+  // Derived state - no need for separate isAuthenticated
+  const isAuthenticated = !!currentUser;
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout, authLoading }}>
+    <AuthContext.Provider
+      value={{
+        currentUser,
+        isAuthenticated,
+        login,
+        logout,
+        authLoading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

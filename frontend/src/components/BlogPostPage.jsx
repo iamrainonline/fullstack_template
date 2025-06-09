@@ -46,7 +46,7 @@ const BlogPost = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center ">
         <div className="bg-white p-8 rounded-lg shadow text-center">
           <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
           <p className="text-slate-600">{error}</p>
@@ -70,7 +70,7 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="bg-gray-100 text-slate-900 min-h-screen">
+    <div className="bg-gray-100 text-slate-900 min-h-screen mt-[120px]">
       <header className="relative bg-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-black opacity-70"></div>
         <motion.div

@@ -9,7 +9,7 @@ export const login = (req, res) => {
   db.query(q, [req.body.email], (err, data) => {
     if (err) return res.json(err);
     if (data.length === 0) return res.status(404).json("User not found");
-
+    console.log(data, " AICI AM DATA DIN QUERY");
     // Check password (returns boolean if correct)
     const isPasswordCorrect = bcrypt.compareSync(
       req.body.password,
@@ -20,7 +20,11 @@ export const login = (req, res) => {
 
     // Create a token and sign it on the unique id
     // Example: "This user Id is the same Id as the Id in the user's post"
-    const token = jwt.sign({ id: data[0].id }, "jwtkey");
+    const token = jwt.sign(
+      { id: data[0].user_id, username: data[0].username },
+      "jwtkey"
+    );
+
     const { password, ...other } = data[0];
 
     res
@@ -50,7 +54,9 @@ export const checkAuth = (req, res) => {
 
   try {
     const user = jwt.verify(token, "jwtkey");
-    res.status(200).json({ authenticated: true, userId: user.id });
+    res
+      .status(200)
+      .json({ authenticated: true, userId: user.id, name: user.username });
   } catch (err) {
     res.sendStatus(401);
   }

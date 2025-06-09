@@ -27,7 +27,7 @@ const Footer = () => {
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800">
-                A.D.C International{" "}
+                Centru de studii{" "}
                 <span className="text-blue-600">Hortensia</span>
               </h3>
             </div>
