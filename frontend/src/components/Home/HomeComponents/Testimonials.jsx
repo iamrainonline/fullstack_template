@@ -78,7 +78,7 @@ const Testimonials = () => {
     },
     {
       icon: <Users className="w-8 h-8" />,
-      number: "2,400+",
+      number: "2,100+",
       label: "Alumni de succes",
       color: "from-teal-500 to-teal-600",
     },

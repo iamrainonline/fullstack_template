@@ -112,7 +112,7 @@ const AdminDashboard = () => {
           ))}
           <button
             onClick={handleLogout}
-            className="hover:bg-slate-800 text-slate-300 w-full flex items-center justify-center md:justify-start md:space-x-3 p-3 rounded-lg mb-2 transition duration-300"
+            className="hover:bg-red-800 bg-red-600 text-white w-full flex items-center justify-center md:justify-start md:space-x-3 p-3 rounded-lg mb-2 transition duration-300"
           >
             <LogOut className="w-6 h-6 md:w-5 md:h-5" />
             <span className="hidden md:inline">Logout</span>

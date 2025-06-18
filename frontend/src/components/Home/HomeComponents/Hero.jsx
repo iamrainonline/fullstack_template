@@ -18,7 +18,7 @@ const Hero = () => {
             className="w-full h-full object-cover"
           >
             <source
-              src="https://videos.pexels.com/video-files/8363910/8363910-hd_1920_1080_30fps.mp4"
+              src="https://videos.pexels.com/video-files/8612325/8612325-hd_1920_1080_25fps.mp4"
               type="video/mp4"
             />
           </video>
@@ -51,7 +51,7 @@ const Hero = () => {
             </h1>
 
             {/* Mission statement */}
-            <p className="text-xl md:text-1xl text-gray-700 leading-relaxed mb-12 font-medium max-w-xl">
+            <p className="text-xl md:text-1xl text-gray-700 leading-relaxed mb-12  max-w-xl">
               {t("sub_title")}
             </p>
 
@@ -59,7 +59,7 @@ const Hero = () => {
             <div className="flex items-center gap-12 mb-12">
               <div>
                 <div className="text-3xl font-bold text-blue-600 mb-1">
-                  2,400+
+                  150+
                 </div>
                 <div className="text-gray-600 text-sm tracking-wide font-medium">
                   {t("students")}
@@ -67,7 +67,7 @@ const Hero = () => {
               </div>
               <div>
                 <div className="text-3xl font-bold text-purple-600 mb-1">
-                  65+
+                  10+
                 </div>
                 <div className="text-gray-600 text-sm tracking-wide font-medium">
                   {t("countries")}

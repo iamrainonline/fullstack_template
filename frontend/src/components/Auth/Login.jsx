@@ -65,7 +65,7 @@ const Login = () => {
                 Welcome Back
               </h2>
               <p className="text-blue-100 opacity-90">
-                Sign in to A.D.C International Portal
+                Sign in to Hortensia Academy
               </p>
             </div>
           </div>
@@ -173,7 +173,7 @@ const Login = () => {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="px-4 bg-white/80 backdrop-blur-sm text-slate-500 rounded-full">
-                  New to A.D.C International?
+                  New to Hortensia Academy?
                 </span>
               </div>
             </div>

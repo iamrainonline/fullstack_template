@@ -29,6 +29,7 @@ const Navbar = () => {
     { id: "About", label: t("about"), url: "/About" },
     { id: "Programs", label: t("programs"), url: "/Programs" },
     { id: "Contact", label: t("contact"), url: "/Contact" },
+    { id: "Events", label: t("events"), url: "/Events" },
   ];
 
   const languages = [
@@ -76,20 +77,20 @@ const Navbar = () => {
                 <div className="flex items-center group">
                   <Phone className="w-4 h-4 mr-2 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
                   <span className="group-hover:text-white transition-colors duration-300">
-                    +40 123 456 789
+                    0774518825
                   </span>
                 </div>
                 <div className="flex items-center group">
                   <Mail className="w-4 h-4 mr-2 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   <span className="group-hover:text-white transition-colors duration-300">
-                    admitere@hortensia.int.edu
+                    cdshortensia.2024@gmail.com
                   </span>
                 </div>
               </div>
               <div className="flex items-center group">
                 <MapPin className="w-4 h-4 mr-2 text-indigo-400 group-hover:scale-110 transition-transform duration-300" />
                 <span className="group-hover:text-white transition-colors duration-300">
-                  Alexandria, Romania
+                  Comuna Nanov, Romania
                 </span>
               </div>
             </div>
@@ -206,7 +207,7 @@ const Navbar = () => {
                         className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
                         title="Login"
                       >
-                        <Key className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        <Key className="w-5 h-5 group-hover:scale-110  transition-transform duration-300" />
                       </Link>
                     )}
                   </>

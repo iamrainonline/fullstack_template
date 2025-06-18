@@ -18,6 +18,7 @@ import BlogPostPage from "./components/BlogPostPage";
 import AboutUs from "./components/Pages/AboutUs";
 import Programs from "./components/Pages/Programs";
 import Contact from "./components/Pages/Contact";
+import Events from "./components/Pages/Events";
 
 // private route
 import PrivateRoute from "./components/Utils/PrivateRoute";
@@ -68,6 +69,10 @@ const router = Router([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/events",
+        element: <Events />,
       },
       {
         path: "/Blogpost/:id",

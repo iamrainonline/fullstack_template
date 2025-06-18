@@ -147,24 +147,24 @@ const Footer = () => {
             <div className="space-y-3 text-gray-600">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                <p>123 Education Blvd, International District, Singapore</p>
+                <p>Str Speranței Nr 101B, Teleorman, Com. Nanov</p>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-purple-600 flex-shrink-0" />
                 <a
-                  href="mailto:info@adc-hortensia.edu"
+                  href="mailto:cdshortensia.2024@gmail.com"
                   className="hover:text-purple-600 transition-colors"
                 >
-                  info@adc-hortensia.edu
+                  cdshortensia.2024@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-indigo-600 flex-shrink-0" />
                 <a
-                  href="tel:+6565551234"
+                  href="tel:+400774 518 825"
                   className="hover:text-indigo-600 transition-colors"
                 >
-                  +65 6555 1234
+                  0774518825
                 </a>
               </div>
             </div>
@@ -174,8 +174,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <div>
-            © {new Date().getFullYear()} A.D.C International Hortensia. All
-            rights reserved.
+            © {new Date().getFullYear()} Hortensia Academy. All rights reserved.
           </div>
           <div className="flex gap-4">
             <Link to="#" className="hover:text-gray-800 transition-colors">
