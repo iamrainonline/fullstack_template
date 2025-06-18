@@ -1,49 +1,41 @@
 import React from "react";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { BookOpen, Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AboutMe = () => {
   return (
-    <div className="bg-white p-6 rounded-2xl">
-      <h3 className="text-2xl font-bold mb-6 text-slate-900">About Me</h3>
+    <div className="bg-white p-6 rounded-2xl shadow-md">
+      <h3 className="text-2xl font-bold mb-6 text-slate-900">Despre Mine</h3>
 
       <div className="space-y-4">
         <div className="flex items-center space-x-4">
           <div className="w-20 h-20 rounded-full bg-slate-200 overflow-hidden">
             <img
-              src="https://picsum.photos/200"
-              alt="Profile"
+              src="https://picsum.photos/200?grayscale"
+              alt="Mihaela"
               className="w-full h-full object-cover"
             />
           </div>
           <div>
-            <h4 className="font-semibold text-slate-900">John Doe</h4>
-            <p className="text-sm text-slate-600">Tech Enthusiast & Writer</p>
+            <h4 className="font-semibold text-slate-900">Mihaela Popescu</h4>
+            <p className="text-sm text-slate-600">
+              Profesoară la școala internațională pentru copii
+            </p>
           </div>
         </div>
 
         <p className="text-slate-600 text-sm">
-          Passionate about web development, AI, and creating content that helps
-          others learn and grow. With over 5 years of experience in the tech
-          industry, I share insights about modern web development, best
-          practices, and emerging technologies.
+          Sunt o profesoară pasionată de educație și dezvoltarea armonioasă a
+          copiilor, cu peste 5 ani de experiență în învățământul internațional.
+          Cred într-o abordare modernă și empatică a predării, unde fiecare
+          copil este încurajat să-și descopere potențialul, să pună întrebări și
+          să învețe cu bucurie. Mă dedic zilnic construirii unui mediu sigur,
+          prietenos și inspirațional pentru toți elevii mei.
         </p>
 
         <div className="pt-4 border-t border-slate-100">
-          <div className="text-sm text-slate-600 mb-2">Connect with me:</div>
+          <div className="text-sm text-slate-600 mb-2">Mă poți contacta:</div>
           <div className="flex space-x-3">
-            <Link
-              to="#"
-              className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
-            >
-              <Github size={20} />
-            </Link>
-            <Link
-              to="#"
-              className="p-2 text-slate-600 hover:text-blue-400 transition-colors"
-            >
-              <Twitter size={20} />
-            </Link>
             <Link
               to="#"
               className="p-2 text-slate-600 hover:text-blue-700 transition-colors"
@@ -56,18 +48,30 @@ const AboutMe = () => {
             >
               <Mail size={20} />
             </Link>
+            <Link
+              to="#"
+              className="p-2 text-slate-600 hover:text-green-600 transition-colors"
+            >
+              <BookOpen size={20} />
+            </Link>
           </div>
         </div>
 
         <div className="mt-4 space-y-2">
           <div className="text-sm">
-            <span className="font-medium text-slate-700">Location:</span>
-            <span className="text-slate-600 ml-2">Bucuresti</span>
+            <span className="font-medium text-slate-700">Locație:</span>
+            <span className="text-slate-600 ml-2">Navov, Teleorman</span>
           </div>
           <div className="text-sm">
-            <span className="font-medium text-slate-700">Expertise:</span>
+            <span className="font-medium text-slate-700">Specializări:</span>
             <span className="text-slate-600 ml-2">
-              React, Node.js, Web Design
+              Educație timpurie, dezvoltare socio-emoțională, învățare prin joc
+            </span>
+          </div>
+          <div className="text-sm">
+            <span className="font-medium text-slate-700">Limbi vorbite:</span>
+            <span className="text-slate-600 ml-2">
+              Română, Engleză, Spaniola
             </span>
           </div>
         </div>

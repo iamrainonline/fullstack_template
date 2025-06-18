@@ -26,7 +26,7 @@ const Contact = () => {
               <div>
                 <h4 className="font-semibold text-gray-800">Adresă</h4>
                 <p className="text-gray-600">
-                  Str. Educației nr. 12, București, România
+                  Str Speranței Nr 101B, Teleorman, Com. Nanov
                 </p>
               </div>
             </div>
@@ -34,14 +34,14 @@ const Contact = () => {
               <Phone className="w-6 h-6 text-indigo-500" />
               <div>
                 <h4 className="font-semibold text-gray-800">Telefon</h4>
-                <p className="text-gray-600">+40 745 123 456</p>
+                <p className="text-gray-600">0774518825</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <Mail className="w-6 h-6 text-indigo-500" />
               <div>
                 <h4 className="font-semibold text-gray-800">Email</h4>
-                <p className="text-gray-600">contact@internationalschool.ro</p>
+                <p className="text-gray-600">cdshortensia.2024@gmail.com</p>
               </div>
             </div>
 

@@ -1,6 +1,6 @@
 // Posts.jsx
 import React, { useState } from "react";
-import AllPosts from "./AllPosts";
+import AllEvents from "./AllEvents";
 import CreatePost from "./CreatePost";
 import CreateCategory from "./CreateCategory";
 
@@ -18,11 +18,11 @@ const Posts = () => {
       case "create-post":
         return <CreatePost />;
       case "post-list":
-        return <AllPosts />;
+        return <AllEvents />;
       case "categories-list":
         return <CreateCategory />;
       default:
-        return <AllPosts />;
+        return <AllEvents />;
     }
   };
 

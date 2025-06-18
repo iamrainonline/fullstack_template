@@ -3,15 +3,11 @@ import {
   Globe2,
   Users,
   Heart,
-  Shield,
   Award,
   BookOpenCheck,
   Languages,
   Palette,
-  Music,
   Baby,
-  GraduationCap,
-  Smile,
   CheckCircle,
   Quote,
 } from "lucide-react";
@@ -56,12 +52,12 @@ const AboutUs = () => {
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-3xl opacity-20 blur-3xl transform rotate-6"></div>
           <img
-            src="https://images.pexels.com/photos/5088183/pexels-photo-5088183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg"
             alt="Happy preschoolers playing in multicultural classroom"
             className="relative rounded-3xl shadow-2xl w-full object-cover h-[500px] transform -rotate-2 hover:rotate-0 transition-transform duration-500"
           />
           <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl">
-            <div className="text-3xl font-bold text-blue-600">10+</div>
+            <div className="text-3xl font-bold text-blue-600">5+</div>
             <div className="text-sm text-gray-600 font-medium">
               Years Experience
             </div>
