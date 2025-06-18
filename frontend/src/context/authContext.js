@@ -7,13 +7,14 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const login = async (inputs) => {
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", inputs, {
+      const res = await axios.post(`${apiUrl}/auth/login`, inputs, {
         withCredentials: true,
       });
-      setCurrentUser(res.data); // Assume res.data contains user info
+      setCurrentUser(res.data);
       return res.data;
     } catch (error) {
       throw error;
@@ -23,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/auth/logout",
+        `${apiUrl}/auth/logout`,
         {},
         {
           withCredentials: true,

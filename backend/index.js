@@ -3,6 +3,8 @@ import authRoutes from "./routes/auth.js";
 import posts from "./routes/posts.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());

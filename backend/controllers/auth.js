@@ -21,7 +21,7 @@ export const login = (req, res) => {
     // Example: "This user Id is the same Id as the Id in the user's post"
     const token = jwt.sign(
       { id: data[0].user_id, username: data[0].username },
-      "jwtkey"
+      process.env.JWT_SECRET
     );
 
     const { password, ...other } = data[0];
@@ -52,7 +52,7 @@ export const checkAuth = (req, res) => {
   if (!token) return res.sendStatus(401);
 
   try {
-    const user = jwt.verify(token, "jwtkey");
+    const user = jwt.verify(token, process.env.JWT_SECRET);
     res
       .status(200)
       .json({ authenticated: true, userId: user.id, name: user.username });
