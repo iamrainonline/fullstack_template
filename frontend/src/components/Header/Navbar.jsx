@@ -26,9 +26,9 @@ const Navbar = () => {
 
   const menuItems = [
     { id: "Home", label: t("home") },
-    { id: "About", label: t("about") },
-    { id: "Programs", label: t("programs") },
-    { id: "Contact", label: t("contact") },
+    { id: "About", label: t("about"), url: "/About" },
+    { id: "Programs", label: t("programs"), url: "/Programs" },
+    { id: "Contact", label: t("contact"), url: "/Contact" },
   ];
 
   const languages = [
@@ -120,7 +120,8 @@ const Navbar = () => {
               {/* Desktop Navigation */}
               <nav className="hidden lg:flex items-center space-x-2">
                 {menuItems.map((item) => (
-                  <button
+                  <Link
+                    to={item.url}
                     key={item.id}
                     onClick={() => setActiveMenu(item.id)}
                     className={`relative px-6 py-3 font-medium transition-all duration-300 rounded-xl group ${
@@ -134,7 +135,7 @@ const Navbar = () => {
                       <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
                     )}
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </button>
+                  </Link>
                 ))}
               </nav>
 
@@ -248,17 +249,19 @@ const Navbar = () => {
             {/* Mobile Navigation */}
             <div className="p-6 space-y-2">
               {menuItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleMenuClick(item.id)}
-                  className={`w-full text-left px-5 py-4 rounded-xl font-medium transition-all duration-300 ${
-                    activeMenu === item.id
-                      ? "bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 border border-blue-200"
-                      : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
-                  }`}
-                >
-                  {item.label}
-                </button>
+                <Link to={item.url}>
+                  <button
+                    key={item.id}
+                    onClick={() => handleMenuClick(item.id)}
+                    className={`w-full text-left px-5 py-4 rounded-xl font-medium transition-all duration-300 ${
+                      activeMenu === item.id
+                        ? "bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 border border-blue-200"
+                        : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                </Link>
               ))}
 
               {/* Mobile Action Buttons */}

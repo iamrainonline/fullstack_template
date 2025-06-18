@@ -18,7 +18,7 @@ const Hero = () => {
             className="w-full h-full object-cover"
           >
             <source
-              src="https://videos.pexels.com/video-files/7945191/7945191-hd_1920_1080_25fps.mp4"
+              src="https://videos.pexels.com/video-files/8363910/8363910-hd_1920_1080_30fps.mp4"
               type="video/mp4"
             />
           </video>
@@ -47,7 +47,7 @@ const Hero = () => {
               <span className="block text-3xl md:text-4xl lg:text-5xl font-bold text-purple-600 mt-2 tracking-wide">
                 {t("main_title")}
               </span>
-              <span>Hortensia</span>
+              <span className="text-7xl">Hortensia</span>
             </h1>
 
             {/* Mission statement */}

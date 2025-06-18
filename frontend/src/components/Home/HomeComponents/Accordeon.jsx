@@ -10,15 +10,13 @@ import {
 } from "lucide-react";
 
 const Accordion = () => {
-  const [openItems, setOpenItems] = useState(new Set([0])); // First item open by default
+  const [openItems, setOpenItems] = useState(new Set([0]));
 
   const toggleItem = (index) => {
     const newOpenItems = new Set(openItems);
-    if (newOpenItems.has(index)) {
-      newOpenItems.delete(index);
-    } else {
-      newOpenItems.add(index);
-    }
+    newOpenItems.has(index)
+      ? newOpenItems.delete(index)
+      : newOpenItems.add(index);
     setOpenItems(newOpenItems);
   };
 
@@ -99,93 +97,80 @@ const Accordion = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24">
-      <div className="max-w-4xl mx-auto px-6">
+    <div className="bg-gradient-to-b from-gray-50 to-white py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-6">
-            <Globe className="w-6 h-6 text-blue-600" />
-            <span className="text-blue-600 font-semibold tracking-wide text-lg">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <Globe className="w-5 h-5 text-indigo-600" />
+            <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">
               Informații Complete
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            F.A.Q - Intrebari Frecvente
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            F.A.Q - Întrebări Frecvente
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Explorează programele noastre, comunitățile internaționale și
-            oportunitățile care te așteaptă la cel mai prestigios centru
-            educațional din România.
+          <p className="mt-4 text-lg text-gray-600">
+            Explorează programele și oportunitățile noastre educaționale
+            internaționale.
           </p>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {accordionData.map((item, index) => (
             <div
               key={index}
-              className="bg-white/80 backdrop-blur-md border border-white/40 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Accordion Header */}
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full flex items-center justify-between p-6 text-left group hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-purple-50/50 transition-all duration-300"
+                className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition"
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className={`p-3 rounded-xl transition-all duration-300 ${
+                    className={`p-2 rounded-lg transition ${
                       openItems.has(index)
-                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                        : "bg-gradient-to-r from-blue-100 to-purple-100 text-blue-600 group-hover:from-blue-200 group-hover:to-purple-200"
+                        ? "bg-indigo-600 text-white"
+                        : "bg-indigo-100 text-indigo-600"
                     }`}
                   >
                     {item.icon}
                   </div>
                   <h3
-                    className={`text-xl font-bold transition-colors duration-300 ${
-                      openItems.has(index)
-                        ? "text-blue-600"
-                        : "text-gray-900 group-hover:text-blue-600"
+                    className={`text-lg font-semibold transition ${
+                      openItems.has(index) ? "text-indigo-700" : "text-gray-800"
                     }`}
                   >
                     {item.title}
                   </h3>
                 </div>
                 <ChevronDown
-                  className={`w-6 h-6 text-gray-400 transition-all duration-300 ${
+                  className={`w-5 h-5 transition-transform ${
                     openItems.has(index)
-                      ? "rotate-180 text-blue-600"
-                      : "group-hover:text-blue-600"
+                      ? "rotate-180 text-indigo-600"
+                      : "text-gray-400"
                   }`}
                 />
               </button>
 
-              {/* Accordion Content */}
+              {/* Content */}
               <div
-                className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                className={`transition-all duration-300 overflow-hidden ${
                   openItems.has(index)
                     ? "max-h-96 opacity-100"
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="px-6 pb-6">
-                  <div className="pl-16">
-                    <div className="bg-gradient-to-r from-blue-50/80 to-purple-50/80 rounded-xl p-6 border border-blue-100/50">
-                      <ul className="space-y-3">
-                        {item.content.map((contentItem, contentIndex) => (
-                          <li
-                            key={contentIndex}
-                            className="flex items-start gap-3 text-gray-700"
-                          >
-                            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="font-medium leading-relaxed">
-                              {contentItem}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                <div className="px-6 pb-5">
+                  <ul className="pl-12 pt-2 space-y-2 text-gray-700 text-sm leading-relaxed">
+                    {item.content.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-2 h-2 mt-2 rounded-full bg-indigo-500 flex-shrink-0"></span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -194,21 +179,21 @@ const Accordion = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-white/60 backdrop-blur-md border border-white/40 rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-md">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Pregătit să începi călătoria ta educațională?
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Contactează-ne astăzi pentru a afla mai multe despre procesul de
-              admitere și pentru a programa o vizită la campus.
+              Contactează-ne pentru a afla mai multe despre procesul de
+              admitere.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center">
-                <BookOpen className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+              <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+                <BookOpen className="w-4 h-4 mr-2 inline-block" />
                 Programează o Vizită
               </button>
-              <button className="group bg-white/70 backdrop-blur-sm border border-white/60 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center">
-                <Award className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+              <button className="bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+                <Award className="w-4 h-4 mr-2 inline-block" />
                 Descarcă Broșura
               </button>
             </div>

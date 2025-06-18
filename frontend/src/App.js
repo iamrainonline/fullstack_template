@@ -15,7 +15,10 @@ import Error from "./components/Utils/Error";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard/Dashboard";
 import BlogPostPage from "./components/BlogPostPage";
-import ContactPage from "./components/ContactPage";
+import AboutUs from "./components/Pages/AboutUs";
+import Programs from "./components/Pages/Programs";
+import Contact from "./components/Pages/Contact";
+
 // private route
 import PrivateRoute from "./components/Utils/PrivateRoute";
 
@@ -52,7 +55,15 @@ const router = Router([
       },
       {
         path: "/contact",
-        element: <ContactPage />,
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+      {
+        path: "/programs",
+        element: <Programs />,
       },
       {
         path: "/login",

@@ -5,12 +5,14 @@ import Accordeon from "./HomeComponents/Accordeon";
 import Testimonials from "./HomeComponents/Testimonials";
 import WhyHortensia from "./HomeComponents/WhyHortensia";
 import Hero from "./HomeComponents/Hero";
+import ImageGallery from "./HomeComponents/ImageGallery";
 const Home = () => {
   const { t } = useTranslation("Home");
   return (
     <div className="min-h-screen relative overflow-hidden mt-10">
       <Hero />
       <WhyHortensia />
+      <ImageGallery />
       <Accordeon />
       <Testimonials />
     </div>
