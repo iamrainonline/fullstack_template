@@ -107,10 +107,20 @@ const BlogPost = () => {
 
       <div className="wrapper mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
         <div className="md:col-span-2 bg-white p-8 rounded-2xl">
-          <div className="mb-10">
+          <div
+            className="mb-10"
+            style={{
+              height: "320px",
+            }}
+          >
             <img
-              className="border rounded-md"
-              src="https://picsum.photos/900/300"
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+              }}
+              className="border rounded-md "
+              src="https://images.pexels.com/photos/8422207/pexels-photo-8422207.jpeg"
               alt=""
             />
           </div>

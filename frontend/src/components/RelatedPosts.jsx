@@ -20,7 +20,7 @@ const RelatedPosts = ({ posts, categoryId }) => {
           <div
             key={post.id}
             onClick={() => navigate(`/blogpost/${post.id}`)}
-            className="group flex items-start space-x-4 hover:bg-gray-50 p-4 rounded-xl transition cursor-pointer shadow-sm hover:shadow-md"
+            className="group flex items-start space-x-4  p-4 rounded-xl transition cursor-pointer shadow-sm"
           >
             {post.image && (
               <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-200">
@@ -32,7 +32,7 @@ const RelatedPosts = ({ posts, categoryId }) => {
               </div>
             )}
             <div className="flex-1">
-              <h4 className="text-lg font-semibold text-slate-900 group-hover:text-blue-700 transition-colors">
+              <h4 className="text-lg font-semibold text-slate-900  transition-colors">
                 {post.title}
               </h4>
               <p className="text-sm text-slate-600 mt-1 line-clamp-2">
