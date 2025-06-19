@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { AuthContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
+import mylogo from "./mylogo.png";
 
 const Navbar = () => {
   const { i18n, t } = useTranslation("Navbar");
@@ -102,7 +103,7 @@ const Navbar = () => {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between items-center h-20">
               {/* Logo */}
-              <div className="flex items-center">
+              <div className="flex items-center h-[80px]">
                 <Link to="/" className="flex items-center group">
                   <div className="w-14 h-14 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-xl flex items-center justify-center mr-4 group-hover:scale-105 transition-all duration-300 shadow-lg">
                     <GraduationCap className="w-7 h-7 text-white" />

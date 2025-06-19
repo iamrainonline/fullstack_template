@@ -33,7 +33,7 @@ const Footer = () => {
               </h3>
             </div>
             <p className="text-gray-600">
-              Nurturing global citizens through innovative education since 1985.
+              Nurturing global citizens through innovative education since 2024.
             </p>
 
             {/* Social Media */}

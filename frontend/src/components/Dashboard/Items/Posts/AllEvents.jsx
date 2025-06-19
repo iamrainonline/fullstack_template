@@ -321,7 +321,7 @@ const AllEvents = () => {
                   transition={{ duration: 0.3 }}
                   className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-purple-200 hover:-translate-y-2"
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-[170px] overflow-hidden">
                     <div
                       className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-80"
                       style={{ backgroundColor: post.color || "#6366f1" }}

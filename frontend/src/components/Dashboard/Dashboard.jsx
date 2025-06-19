@@ -36,21 +36,16 @@ const AdminDashboard = () => {
       name: "Posts",
       section: "view-posts",
     },
-    {
-      icon: <Settings className="w-6 h-6 md:w-5 md:h-5" />,
-      name: "Settings",
-      section: "settings",
-    },
   ];
 
   const handleLogout = async () => {
     try {
       await logout();
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.error("Logout error:", error);
       // Still navigate away even if logout fails
-      navigate("/");
+      navigate("/login");
     }
   };
 
