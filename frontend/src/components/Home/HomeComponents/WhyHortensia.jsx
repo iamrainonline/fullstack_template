@@ -40,7 +40,7 @@ const WhyHortensia = () => {
           <div className="lg:col-span-2 bg-white rounded-lg shadow-md">
             <div className="h-48 bg-gray-200 rounded-t-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=800&h=400&fit=crop"
+                src="https://images.pexels.com/photos/8422248/pexels-photo-8422248.jpeg"
                 alt="Copii la școală"
                 className="w-full h-full object-cover"
               />
@@ -59,18 +59,6 @@ const WhyHortensia = () => {
                     <p className="text-gray-700 leading-relaxed">
                       <strong>Transport Școlar</strong> - în funcție de
                       necesitățile fiecărei familii.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <Utensils className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="text-gray-700 leading-relaxed">
-                      <strong>Catering de calitate:</strong> servicii oferite de
-                      Restaurantul UNICOM.
                     </p>
                   </div>
                 </div>

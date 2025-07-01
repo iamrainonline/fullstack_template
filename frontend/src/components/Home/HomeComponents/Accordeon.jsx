@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 const Accordion = () => {
-  const [openItems, setOpenItems] = useState(new Set([0]));
+  const [openItems, setOpenItems] = useState(new Set([null]));
 
   const toggleItem = (index) => {
     const newOpenItems = new Set(openItems);
