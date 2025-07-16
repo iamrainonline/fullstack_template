@@ -1,24 +1,21 @@
-import { db } from "../db.js";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+const db = require("../db");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-export const login = (req, res) => {
-  // Check User
-
+exports.login = (req, res) => {
   const q = "SELECT * FROM users WHERE email = ?";
   db.query(q, [req.body.email], (err, data) => {
     if (err) return res.json(err);
     if (data.length === 0) return res.status(404).json("User not found");
-    // Check password (returns boolean if correct)
+
     const isPasswordCorrect = bcrypt.compareSync(
       req.body.password,
       data[0].password
     );
+
     if (!isPasswordCorrect)
       return res.status(400).json("Wrong username or Password");
 
-    // Create a token and sign it on the unique id
-    // Example: "This user Id is the same Id as the Id in the user's post"
     const token = jwt.sign(
       { id: data[0].user_id, username: data[0].username },
       process.env.JWT_SECRET
@@ -35,7 +32,7 @@ export const login = (req, res) => {
   });
 };
 
-export const logout = (req, res) => {
+exports.logout = (req, res) => {
   res
     .clearCookie("access_token", {
       sameSite: "none",
@@ -45,9 +42,7 @@ export const logout = (req, res) => {
     .json("User has been logged out");
 };
 
-//  CHECK AUTH FOR TOKEN REQUEST
-
-export const checkAuth = (req, res) => {
+exports.checkAuth = (req, res) => {
   const token = req.cookies.access_token;
   if (!token) return res.sendStatus(401);
 
