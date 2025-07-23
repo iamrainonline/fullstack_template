@@ -15,12 +15,210 @@ import {
 
 const WhyHortensia = () => {
   return (
-    <div
-      className="min-h-screen"
-      style={{ backgroundColor: "var(--color-bg)" }}
-    >
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Decorative Background Elements - MAI MULTE ELEMENTE */}
+      <div className="absolute top-20 left-10 text-8xl opacity-10 transform rotate-12">
+        🌈
+      </div>
+      <div className="absolute top-40 right-20 text-7xl opacity-10 transform -rotate-12">
+        ⭐
+      </div>
+      <div className="absolute bottom-20 left-20 text-9xl opacity-10 transform rotate-45">
+        🌸
+      </div>
+      <div className="absolute bottom-40 right-10 text-8xl opacity-10 transform -rotate-45">
+        🦋
+      </div>
+
+      {/* Mai multe flori și fluturi distribuiți pe pagină */}
+      <div
+        className="absolute"
+        style={{
+          top: "240px",
+          left: "33%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(30deg)",
+        }}
+      >
+        🌺
+      </div>
+
+      <div
+        className="absolute"
+        style={{
+          bottom: "240px",
+          left: "50%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(60deg)",
+        }}
+      >
+        🌷
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "40px",
+          right: "50%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-60deg)",
+        }}
+      >
+        🦋
+      </div>
+
+      <div
+        className="absolute"
+        style={{
+          top: "30%",
+          left: "5%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(45deg)",
+        }}
+      >
+        🌻
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "30%",
+          right: "5%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-45deg)",
+        }}
+      >
+        🦋
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "50%",
+          left: "15%",
+          fontSize: "8rem",
+          opacity: 0.1,
+          transform: "rotate(90deg)",
+        }}
+      >
+        🌸
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "50%",
+          right: "15%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(-90deg)",
+        }}
+      >
+        🌹
+      </div>
+
+      <div
+        className="absolute"
+        style={{
+          top: "70%",
+          left: "25%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(180deg)",
+        }}
+      >
+        🦋
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "70%",
+          right: "25%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(0deg)",
+        }}
+      >
+        🌺
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "15%",
+          left: "50%",
+          fontSize: "8rem",
+          opacity: 0.1,
+          transform: "rotate(135deg)",
+        }}
+      >
+        🌼
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "30%",
+          left: "40%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-135deg)",
+        }}
+      >
+        🦋
+      </div>
+
+      {/* Elemente suplimentare pentru acoperire completă */}
+      <div
+        className="absolute"
+        style={{
+          top: "45%",
+          left: "60%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(75deg)",
+        }}
+      >
+        🌷
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "45%",
+          right: "60%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-75deg)",
+        }}
+      >
+        🌻
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "80%",
+          left: "80%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(15deg)",
+        }}
+      >
+        🦋
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "20%",
+          right: "80%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-15deg)",
+        }}
+      >
+        🌸
+      </div>
+
       {/* Header */}
-      <div className="bg-white shadow-sm">
+      <div className=" shadow-sm relative z-10">
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="text-center">
             <div
@@ -46,7 +244,7 @@ const WhyHortensia = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-6 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Îngrijire de Calitate - Large Card */}
           <div className="lg:col-span-2 bg-white rounded-lg shadow-md">
@@ -138,7 +336,7 @@ const WhyHortensia = () => {
               <div className="bg-green-50 rounded-lg p-4">
                 <div className="flex items-center mb-2">
                   <Award
-                    className="w-5 h-5"
+                    className="w-5 h-5 mr-2"
                     style={{ color: "var(--color-secondary)" }}
                   />
                   <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-semibold">
@@ -167,7 +365,7 @@ const WhyHortensia = () => {
               <div className="bg-purple-50 rounded-lg p-4">
                 <div className="flex items-center mb-2">
                   <Users
-                    className="w-5 h-5"
+                    className="w-5 h-5 mr-2"
                     style={{ color: "var(--color-secondary)" }}
                   />
                   <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">

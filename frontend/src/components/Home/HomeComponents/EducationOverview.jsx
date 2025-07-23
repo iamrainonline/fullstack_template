@@ -105,7 +105,133 @@ const EducationOverview = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen py-20">
+    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen py-20 relative overflow-hidden">
+      {/* Decorative Background Elements - Mai multe elemente decorative */}
+      <div className="absolute top-10 left-10 text-9xl opacity-10 transform rotate-12">
+        🌸
+      </div>
+      <div className="absolute top-32 right-20 text-8xl opacity-10 transform -rotate-12">
+        🦋
+      </div>
+      <div className="absolute top-52 left-1/3 text-7xl opacity-10 transform rotate-45">
+        🌺
+      </div>
+      <div className="absolute top-20 right-1/3 text-8xl opacity-10 transform -rotate-45">
+        🌷
+      </div>
+
+      <div className="absolute bottom-20 left-20 text-8xl opacity-10 transform rotate-45">
+        🌼
+      </div>
+      <div className="absolute bottom-40 right-10 text-9xl opacity-10 transform -rotate-45">
+        🦋
+      </div>
+      <div className="absolute bottom-60 left-1/2 text-7xl opacity-10 transform rotate-12">
+        🌻
+      </div>
+      <div className="absolute bottom-10 right-1/3 text-8xl opacity-10 transform -rotate-12">
+        🌹
+      </div>
+
+      <div
+        className="absolute"
+        style={{
+          top: "50%",
+          left: "10px",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-12deg)",
+        }}
+      >
+        🦋
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "50%",
+          right: "20px",
+          fontSize: "8rem",
+          opacity: 0.1,
+          transform: "rotate(45deg)",
+        }}
+      >
+        🌸
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "33%",
+          left: "25%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(-45deg)",
+        }}
+      >
+        🌺
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "33%",
+          right: "25%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(12deg)",
+        }}
+      >
+        🦋
+      </div>
+
+      {/* Extra decorative elements for more coverage */}
+      <div
+        className="absolute"
+        style={{
+          top: "320px",
+          left: "50%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(90deg)",
+        }}
+      >
+        🌷
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "320px",
+          right: "50%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-90deg)",
+        }}
+      >
+        🌼
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "66%",
+          left: "66%",
+          fontSize: "8rem",
+          opacity: 0.1,
+          transform: "rotate(180deg)",
+        }}
+      >
+        🦋
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "66%",
+          right: "66%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(-180deg)",
+        }}
+      >
+        🌻
+      </div>
+
       <style>{`
         :root {
           --color-primary: #0358b6;
@@ -121,7 +247,7 @@ const EducationOverview = () => {
         }
       `}</style>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">

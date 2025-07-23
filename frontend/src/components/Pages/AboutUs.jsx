@@ -312,54 +312,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-
-      {/* Testimoniale */}
-      <div className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-8 text-center">
-          <h2 className="text-4xl font-bold mb-16">Ce spun părinții</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-              <Quote className="w-12 h-12 text-blue-600 mx-auto mb-6" />
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                „Programul bilingv a fost extraordinar pentru fiica noastră.
-                Trecerea între engleză și spaniolă este naturală, iar profesorii
-                fac învățarea o bucurie.”
-              </p>
-              <div className="flex items-center justify-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                  M
-                </div>
-                <div className="text-left">
-                  <div className="font-semibold">Mariana Torres</div>
-                  <div className="text-sm text-gray-600">
-                    Mamă a Sofiei, 3 ani
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-              <Quote className="w-12 h-12 text-green-600 mx-auto mb-6" />
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                „Ne place focusul internațional – fiul nostru povestește acasă
-                despre festivaluri din diferite culturi și a devenit foarte
-                curios despre lume.”
-              </p>
-              <div className="flex items-center justify-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                  J
-                </div>
-                <div className="text-left">
-                  <div className="font-semibold">James Wilson</div>
-                  <div className="text-sm text-gray-600">
-                    Tatăl lui Noah, 4 ani
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

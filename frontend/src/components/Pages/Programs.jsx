@@ -54,8 +54,196 @@ const programs = [
 
 const Programs = () => {
   return (
-    <div className="bg-white py-40 text-gray-900 ">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="bg-white py-40 text-gray-900 relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-20 left-10 text-8xl opacity-10 transform rotate-12">
+        🌈
+      </div>
+      <div className="absolute top-40 right-20 text-7xl opacity-10 transform -rotate-12">
+        ⭐
+      </div>
+      <div className="absolute bottom-20 left-20 text-9xl opacity-10 transform rotate-45">
+        🌸
+      </div>
+      <div className="absolute bottom-40 right-10 text-8xl opacity-10 transform -rotate-45">
+        🦋
+      </div>
+
+      {/* Mai multe elemente decorative distribuite */}
+      <div
+        className="absolute"
+        style={{
+          top: "15%",
+          left: "30%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(30deg)",
+        }}
+      >
+        🌺
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "25%",
+          right: "25%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(-30deg)",
+        }}
+      >
+        🌼
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "30%",
+          left: "40%",
+          fontSize: "8rem",
+          opacity: 0.1,
+          transform: "rotate(60deg)",
+        }}
+      >
+        🌷
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "15%",
+          right: "35%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-60deg)",
+        }}
+      >
+        🦋
+      </div>
+
+      <div
+        className="absolute"
+        style={{
+          top: "50%",
+          left: "10%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(90deg)",
+        }}
+      >
+        🌻
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "45%",
+          right: "15%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-90deg)",
+        }}
+      >
+        🦋
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "70%",
+          left: "60%",
+          fontSize: "8rem",
+          opacity: 0.1,
+          transform: "rotate(180deg)",
+        }}
+      >
+        🌸
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "60%",
+          right: "50%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(0deg)",
+        }}
+      >
+        🌹
+      </div>
+
+      {/* Elemente suplimentare pentru acoperire completă */}
+      <div
+        className="absolute"
+        style={{
+          top: "35%",
+          left: "50%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(45deg)",
+        }}
+      >
+        🦋
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "50%",
+          right: "60%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(-45deg)",
+        }}
+      >
+        🌺
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "80%",
+          left: "20%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(135deg)",
+        }}
+      >
+        🌼
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: "10%",
+          right: "70%",
+          fontSize: "6rem",
+          opacity: 0.1,
+          transform: "rotate(-135deg)",
+        }}
+      >
+        🦋
+      </div>
+
+      <div
+        className="absolute"
+        style={{
+          bottom: "60%",
+          left: "70%",
+          fontSize: "8rem",
+          opacity: 0.1,
+          transform: "rotate(75deg)",
+        }}
+      >
+        🌷
+      </div>
+      <div
+        className="absolute"
+        style={{
+          bottom: "70%",
+          right: "30%",
+          fontSize: "7rem",
+          opacity: 0.1,
+          transform: "rotate(-75deg)",
+        }}
+      >
+        🌸
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Programele Noastre Educaționale
