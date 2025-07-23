@@ -99,34 +99,32 @@ const Navbar = () => {
         </div>
 
         {/* Main navbar */}
-        <header className="bg-white/95 backdrop-blur-md shadow-lg w-full transition-all duration-300 border-b border-white/20 scale-[0.95]">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex justify-between items-center h-20">
-              {/* Logo */}
-              <div className="flex items-center h-[80px]">
-                <Link to="/" className="flex items-center">
-                  <div className="w-14 h-14 bg-[var(--color-primary)] rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                    <GraduationCap className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h1 className="text-xl font-bold text-slate-800">
-                      {t("LogoTitle")}
-                    </h1>
-                    <p className="text-sm text-slate-500 hidden sm:block">
-                      {t("LogoSubtitle")}
-                    </p>
-                  </div>
-                </Link>
-              </div>
+        <header className="bg-white/90 backdrop-blur-md shadow-md w-full border-b border-white/20  origin-top">
+          <div className="max-w-7xl mx-auto px-3">
+            <div className="flex justify-between items-center h-16">
+              {/* Logo mic */}
+              <Link to="/" className="flex items-center">
+                <div className="w-10 h-10 bg-[var(--color-primary)] rounded-xl flex items-center justify-center mr-3 shadow">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-base font-bold text-slate-800">
+                    {t("LogoTitle")}
+                  </h1>
+                  <p className="text-xs text-slate-500 hidden sm:block">
+                    {t("LogoSubtitle")}
+                  </p>
+                </div>
+              </Link>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden lg:flex items-center space-x-2">
+              {/* Desktop Nav mic */}
+              <nav className="hidden lg:flex items-center space-x-1">
                 {menuItems.map((item) => (
                   <Link
                     to={item.url}
                     key={item.id}
                     onClick={() => setActiveMenu(item.id)}
-                    className={`relative px-6 py-3 font-medium rounded-xl ${
+                    className={`px-3 py-2 text-sm font-medium rounded-md ${
                       activeMenu === item.id
                         ? "text-[var(--color-primary)] bg-[var(--color-primary)]/10"
                         : "text-slate-700"
@@ -137,38 +135,39 @@ const Navbar = () => {
                 ))}
               </nav>
 
-              {/* Right side actions */}
-              <div className="flex items-center space-x-3">
-                {/* Language Button - simplified (same logic) */}
+              {/* Dreapta mică */}
+              <div className="flex items-center space-x-2">
+                {/* Limba */}
                 <div className="relative">
                   <button
                     onClick={() => setLangMenuOpen(!langMenuOpen)}
-                    className="flex items-center space-x-2 px-4 py-2.5 text-slate-700 border border-slate-200 rounded-xl"
+                    className="flex items-center gap-1 px-3 py-2 text-sm border border-slate-200 rounded-md"
                   >
                     <img
                       src={currentLanguage.flag}
                       alt={currentLanguage.name}
-                      className="w-5 h-4 rounded shadow-sm"
+                      className="w-4 h-3 rounded"
                     />
-                    <span className="font-medium hidden sm:inline">
+                    <span className="hidden sm:inline">
                       {currentLanguage.name}
                     </span>
-                    <span className="font-medium sm:hidden">
+                    <span className="sm:hidden">
                       {currentLanguage.code.toUpperCase()}
                     </span>
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform ${
+                      className={`w-3 h-3 transition-transform ${
                         langMenuOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
+
                   {langMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50">
+                    <div className="absolute right-0 mt-1 w-40 bg-white border border-slate-200 rounded-md shadow z-50 py-1">
                       {languages.map((lang) => (
                         <button
                           key={lang.code}
                           onClick={() => handleLanguageChange(lang.code)}
-                          className={`w-full text-left px-4 py-3 flex items-center space-x-3 ${
+                          className={`w-full flex items-center gap-2 px-3 py-2 text-sm ${
                             lang.code === i18n.language
                               ? "bg-[var(--color-primary)]/10 text-[var(--color-primary)]"
                               : ""
@@ -177,51 +176,47 @@ const Navbar = () => {
                           <img
                             src={lang.flag}
                             alt={lang.name}
-                            className="w-5 h-4 rounded shadow-sm"
+                            className="w-4 h-3 rounded"
                           />
-                          <span className="font-medium">{lang.name}</span>
+                          <span>{lang.name}</span>
                         </button>
                       ))}
                     </div>
                   )}
                 </div>
 
-                {/* Autentificare - fără hover */}
-                {!authLoading && (
-                  <>
-                    {isAuthenticated ? (
-                      <Link
-                        to="/dashboard"
-                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-[var(--color-primary)] text-white rounded-xl"
-                      >
-                        <User className="w-5 h-5" />
-                      </Link>
-                    ) : (
-                      <Link
-                        to="/login"
-                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-[var(--color-primary)] text-white rounded-xl"
-                      >
-                        <Key className="w-5 h-5" />
-                      </Link>
-                    )}
-                  </>
-                )}
-
-                {authLoading && (
-                  <div className="w-11 h-11 flex items-center justify-center">
-                    <div className="w-5 h-5 border-2 border-slate-300 border-t-[var(--color-primary)] rounded-full animate-spin"></div>
+                {/* Login / Dashboard */}
+                {!authLoading ? (
+                  isAuthenticated ? (
+                    <Link
+                      to="/dashboard"
+                      className="hidden sm:flex items-center justify-center w-10 h-10 bg-[var(--color-primary)] text-white rounded-md"
+                    >
+                      <User className="w-4 h-4" />
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="hidden sm:flex items-center justify-center w-10 h-10 bg-[var(--color-primary)] text-white rounded-md"
+                    >
+                      <Key className="w-4 h-4" />
+                    </Link>
+                  )
+                ) : (
+                  <div className="w-10 h-10 flex items-center justify-center">
+                    <div className="w-4 h-4 border-2 border-slate-300 border-t-[var(--color-primary)] rounded-full animate-spin"></div>
                   </div>
                 )}
 
-                {/* Mobile Menu Btn */}
+                {/* Buton meniu mobil */}
                 <button
-                  className="lg:hidden p-2.5 text-slate-700"
+                  className="lg:hidden p-2 text-slate-700"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                   {mobileMenuOpen ? (
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5" />
                   ) : (
-                    <Menu className="w-6 h-6" />
+                    <Menu className="w-5 h-5" />
                   )}
                 </button>
               </div>

@@ -16,7 +16,7 @@ import {
 const educationData = [
   {
     title: "DE CE SĂ NE ALEGEȚI",
-    icon: <Award className="w-8 h-8 text-blue-600" />,
+    icon: <Award className="w-8 h-8 text-[var(--color-primary)]" />,
     content: [
       "Primul Centru de Studii din zona în care copilul tău va avea o atenție personalizată pe tot parcursul perioadei de învățare, creștere și dezvoltare cuprinse între 1 și 18 ani.",
       'Familia "pilar principal al societății", primul loc unde copiii își împărtășesc dragostea cu sinceritate și încredere. Împreună vom crea o atmosferă în care fiecare copil și adolescent din centrul nostru va fi ascultat și i se va acorda acel sprijin de care are nevoie în fiecare etapă a vârstei.',
@@ -124,16 +124,16 @@ const EducationOverview = () => {
 
   return (
     <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Învățare pentru{" "}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
               toate vârstele
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-base lg:text-lg text-gray-700 leading-relaxed mb-8 max-w-md mx-auto">
             De la primii pași până la liceu și colaborarea cu părinții, fiecare
             etapă este sprijinită printr-un mediu educațional personalizat și
             atent la nevoile individuale ale fiecărui copil.
