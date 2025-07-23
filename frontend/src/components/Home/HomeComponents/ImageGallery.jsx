@@ -42,22 +42,28 @@ const images = [
 
 const ImageGallery = () => {
   return (
-    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20">
+    <div className="bg-white py-16">
+      {" "}
+      {/* Adjusted padding for consistency */}
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12">
+          {" "}
+          {/* Adjusted margin */}
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
             Galerie{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent">
               Vizuală
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[var(--color-text)] max-w-2xl mx-auto">
             Un colaj viu care surprinde momentele speciale, evenimentele și
             spiritul comunității Hortensia.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
+          {" "}
+          {/* Reduced number of columns */}
           {images.map((image, index) => (
             <div
               key={index}

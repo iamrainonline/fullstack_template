@@ -1,7 +1,12 @@
 :root {
   --color-primary: #0358b6; /* albastru deschis */
+  --color-primary-light: #a3c7f7; /* albastru mai deschis */
   --color-secondary: #b4ca34; /* verde deschis */
-  --color-accent: #f9c74f; /* galben școlar */
+  --color-secondary-light: #d2e085; /* verde mai deschis */
+  --color-accent: #ffb300ff; /* galben școlar */
+  --color-accent-light: #fcd97c; /* galben pal */
   --color-text: #333333;
-  --color-bg: #ffffff;
+  --color-text-light: #666666; /* gri deschis pentru text */
+  --color-bg: #ffffff; /* fundal alb */
+  --color-bg-light: #f7f7f7; /* fundal mai deschis pentru secțiuni */
 }

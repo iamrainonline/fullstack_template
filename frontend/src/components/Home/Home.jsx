@@ -16,7 +16,7 @@ const Home = () => {
       <EducationOverview />
       <ImageGallery />
       <Accordeon />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </div>
   );
 };
