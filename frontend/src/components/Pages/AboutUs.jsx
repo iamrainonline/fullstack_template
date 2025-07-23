@@ -20,7 +20,7 @@ const AboutUs = () => {
         <div>
           <div className="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-full text-sm font-semibold mb-8">
             <Award className="w-4 h-4 mr-2" />
-            Grădiniță Acreditată Internațional
+            Grădiniță Internațional
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">

@@ -99,17 +99,17 @@ const Navbar = () => {
         </div>
 
         {/* Main navbar */}
-        <header className="bg-white/95 backdrop-blur-md shadow-lg w-full transition-all duration-300 border-b border-white/20">
+        <header className="bg-white/95 backdrop-blur-md shadow-lg w-full transition-all duration-300 border-b border-white/20 scale-[0.95]">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between items-center h-20">
               {/* Logo */}
               <div className="flex items-center h-[80px]">
-                <Link to="/" className="flex items-center group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-xl flex items-center justify-center mr-4 group-hover:scale-105 transition-all duration-300 shadow-lg">
+                <Link to="/" className="flex items-center">
+                  <div className="w-14 h-14 bg-[var(--color-primary)] rounded-xl flex items-center justify-center mr-4 shadow-lg">
                     <GraduationCap className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h1 className="text-xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+                    <h1 className="text-xl font-bold text-slate-800">
                       {t("LogoTitle")}
                     </h1>
                     <p className="text-sm text-slate-500 hidden sm:block">
@@ -126,28 +126,24 @@ const Navbar = () => {
                     to={item.url}
                     key={item.id}
                     onClick={() => setActiveMenu(item.id)}
-                    className={`relative px-6 py-3 font-medium transition-all duration-300 rounded-xl group ${
+                    className={`relative px-6 py-3 font-medium rounded-xl ${
                       activeMenu === item.id
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/50"
+                        ? "text-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                        : "text-slate-700"
                     }`}
                   >
                     {item.label}
-                    {activeMenu === item.id && (
-                      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 ))}
               </nav>
 
               {/* Right side actions */}
               <div className="flex items-center space-x-3">
-                {/* Language Dropdown */}
+                {/* Language Button - simplified (same logic) */}
                 <div className="relative">
                   <button
                     onClick={() => setLangMenuOpen(!langMenuOpen)}
-                    className="flex items-center space-x-2 px-4 py-2.5 text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 border border-slate-200/50 hover:border-blue-200"
+                    className="flex items-center space-x-2 px-4 py-2.5 text-slate-700 border border-slate-200 rounded-xl"
                   >
                     <img
                       src={currentLanguage.flag}
@@ -161,22 +157,21 @@ const Navbar = () => {
                       {currentLanguage.code.toUpperCase()}
                     </span>
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${
+                      className={`w-4 h-4 transition-transform ${
                         langMenuOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
-
                   {langMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-2 z-50 animate-in slide-in-from-top-2 duration-200">
+                    <div className="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50">
                       {languages.map((lang) => (
                         <button
                           key={lang.code}
                           onClick={() => handleLanguageChange(lang.code)}
-                          className={`w-full text-left px-4 py-3 flex items-center space-x-3 transition-all duration-200 ${
+                          className={`w-full text-left px-4 py-3 flex items-center space-x-3 ${
                             lang.code === i18n.language
-                              ? "bg-blue-50 text-blue-600"
-                              : "hover:bg-slate-50"
+                              ? "bg-[var(--color-primary)]/10 text-[var(--color-primary)]"
+                              : ""
                           }`}
                         >
                           <img
@@ -191,39 +186,36 @@ const Navbar = () => {
                   )}
                 </div>
 
-                {/* Authentication buttons - only show when not loading */}
+                {/* Autentificare - fără hover */}
                 {!authLoading && (
                   <>
                     {isAuthenticated ? (
                       <Link
                         to="/dashboard"
-                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                        title={`Dashboard - ${currentUser?.name || "User"}`}
+                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-[var(--color-primary)] text-white rounded-xl"
                       >
-                        <User className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        <User className="w-5 h-5" />
                       </Link>
                     ) : (
                       <Link
                         to="/login"
-                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                        title="Login"
+                        className="hidden sm:flex items-center justify-center w-11 h-11 bg-[var(--color-primary)] text-white rounded-xl"
                       >
-                        <Key className="w-5 h-5 group-hover:scale-110  transition-transform duration-300" />
+                        <Key className="w-5 h-5" />
                       </Link>
                     )}
                   </>
                 )}
 
-                {/* Show loading spinner when auth is loading */}
                 {authLoading && (
                   <div className="w-11 h-11 flex items-center justify-center">
-                    <div className="w-5 h-5 border-2 border-slate-300 border-t-blue-600 rounded-full animate-spin"></div>
+                    <div className="w-5 h-5 border-2 border-slate-300 border-t-[var(--color-primary)] rounded-full animate-spin"></div>
                   </div>
                 )}
 
-                {/* Mobile menu button */}
+                {/* Mobile Menu Btn */}
                 <button
-                  className="lg:hidden p-2.5 text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300"
+                  className="lg:hidden p-2.5 text-slate-700"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                   {mobileMenuOpen ? (

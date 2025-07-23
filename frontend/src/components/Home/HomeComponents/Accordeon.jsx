@@ -69,18 +69,7 @@ const Accordion = () => {
         "Transport școlar și servicii de catering internaționale",
       ],
     },
-    {
-      icon: <Award className="w-6 h-6" />,
-      title: "Performanțe și Recunoașteri",
-      content: [
-        "98% rata de promovabilitate la examenele internaționale",
-        "Absolvenți acceptați la Harvard, Oxford, Cambridge, ETH Zurich",
-        "Școală acreditată IB World School și Cambridge International",
-        "Premii naționale și internaționale pentru excelența academică",
-        "Certificare UNESCO pentru educația pentru dezvoltare durabilă",
-        "Partener oficial al British Council România",
-      ],
-    },
+
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Admitere și Contact",
